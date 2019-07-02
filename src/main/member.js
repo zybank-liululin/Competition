@@ -12,6 +12,8 @@ export default class Member{
         this.memberLevel=new Level(this.memberIntegral);
         return {
             increaseIntegral:increaseIntegral,
+            newMemberLevel:this.memberLevel.levelName,
+            newIntegral:this.memberIntegra
         };
     } 
 };

@@ -16,6 +16,6 @@ describe('OrderRepresentation', () => {
             }
         }
         const product = new Product(productInfo)
-        assert.equal(product.getMostDisCount(2, true), 300);
+        assert.equal(product.getMostDisCount(2, true), 600);
     })
 });

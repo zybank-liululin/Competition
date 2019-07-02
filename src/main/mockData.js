@@ -64,7 +64,7 @@ const Products = {
     }
 }
 
-const Member = {
+const Members = {
     '6236609999': {
         name: '马丁',
         interal: '9860'
@@ -82,4 +82,4 @@ const Member = {
         interal: '198860'
     },
 }
-export {Products, Member}
+export {Products, Members}
