@@ -4,6 +4,8 @@ import { readFile } from '../../src/output/utils';
 import OrderItem from '../../src/output/order-item';
 import DiscountItem from '../../src/output/discount-item';
 import OrderRepresentation from '../../src/output/order-representation';
+import Level from '../../src/main/level';
+import Member from '../../src/main/member';
 
 
 describe('OrderRepresentation', () => {
@@ -46,6 +48,21 @@ describe('OrderRepresentation', () => {
     };
     const orderRepresentation = new OrderRepresentation(data);
     const expectedResult = await readFile(path.join(__dirname, '../resources/sample_result.txt'), 'utf8');
-    assert.equal(orderRepresentation.toString(), expectedResult.trim());
+    assert.equal(orderRepresentation.toString().replace(/\r\n/gi, '\n'), expectedResult.trim().replace(/\r\n/gi, '\n'));;
+  });
+});
+describe('Level',()=>{
+  it('如果根据积分生成一个Leve对象，生成对象有正确的类型和基准倍数', async ()=>{
+      let tenInteralLevel=new Level(10);
+      assert.equal(tenInteralLevel.levelName,'普卡');
+      assert.equal(tenInteralLevel.levelTimes,1);
+  });
+});
+describe('Level',()=>{
+  it('生成一个用户，用户有正确的类型和基准倍数', async ()=>{
+      let newMember=new Member(6236609999,'马丁',9860);
+      console.log(newMember);
+      assert.equal(newMember.memberLevel.levelName,'普卡');
+      assert.equal(newMember.memberLevel.levelTimes,1);
   });
 });
